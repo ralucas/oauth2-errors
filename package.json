@@ -6,7 +6,7 @@
   "scripts": {
     "clean": "rm -rf lib/*",
     "compile": "./node_modules/.bin/tsc",
-    "prepublishOnly": "npm test && npm compile",
+    "prepublishOnly": "npm test && npm run compile",
     "test": "./node_modules/.bin/jest",
     "watch": "./node_modules/.bin/tsc -w"
   },
