@@ -22,6 +22,7 @@
     "@types/node": "9.6.5",
     "jest": "22.4.3",
     "node-mocks-http": "1.5.8",
+    "source-map-support": "0.5.4",
     "ts-jest": "22.4.2",
     "typescript": "2.8.1"
   },
