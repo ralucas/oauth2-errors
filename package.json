@@ -2,7 +2,7 @@
   "name": "oauth2-errors",
   "version": "1.0.0",
   "description": "Errors and handler for Oauth 2.0 spec errors",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "clean": "rm -rf lib/*",
     "compile": "./node_modules/.bin/tsc",
