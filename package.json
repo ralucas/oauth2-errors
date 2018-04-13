@@ -1,0 +1,49 @@
+{
+  "name": "oauth2-errors",
+  "version": "1.0.0",
+  "description": "Errors and handler for Oauth 2.0 spec errors",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rm -rf lib/*",
+    "compile": "./node_modules/.bin/tsc",
+    "prepublish": "npm test && npm compile",
+    "test": "./node_modules/.bin/jest",
+    "watch": "./node_modules/.bin/tsc -w"
+  },
+  "keywords": [
+    "oauth",
+    "oauth2",
+    "errors",
+    "error"
+  ],
+  "author": "R.A. Lucas",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "9.6.5",
+    "jest": "22.4.3",
+    "node-mocks-http": "1.5.8",
+    "ts-jest": "22.4.2",
+    "typescript": "2.8.1"
+  },
+  "jest": {
+    "globals": {
+      "ts-jest": {
+        "tsConfigFile": "tsconfig.json"
+      }
+    },
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json"
+    ],
+    "testEnvironment": "node",
+    "testMatch": [
+      "<rootDir>__tests__/*.spec.{ts|tsx|js|jsx}"
+    ],
+    "transform": {
+      "^.+\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    }
+  }
+}
