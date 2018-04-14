@@ -6,21 +6,124 @@ import * as OauthErrors from '../src'
 import { Oauth2Error } from '../src/oauth2_error'
 
 describe('OauthErrors', () => {
-  it('should create an instance of an Oauth2Error', () => {
-    const oe = new OauthErrors.InvalidClient()
-    expect(oe).toBeInstanceOf(Oauth2Error)
+  it('should have all the errors', () => {
+    expect(OauthErrors.InvalidClient).toBeTruthy()
+    expect(OauthErrors.InvalidGrant).toBeTruthy()
+    expect(OauthErrors.InvalidRequest).toBeTruthy()
+    expect(OauthErrors.InvalidScope).toBeTruthy()
+    expect(OauthErrors.UnauthorizedGrantType).toBeTruthy()
+    expect(OauthErrors.UnauthorizedClient).toBeTruthy()
   })
 
-  it('should have the correct properties', () => {
-    const oe = new OauthErrors.InvalidClient({ 
-      description: 'test',
-      uri: 'http://test.com/error'
+  describe('InvalidClient', () => {
+    it('should be an instance of an Oauth2Error', () => {
+      const oe = new OauthErrors.InvalidClient()
+      expect(oe).toBeInstanceOf(Oauth2Error)
     })
-    expect(oe).toBeInstanceOf(Oauth2Error)
-    expect(oe.statusCode).toBeTruthy()
-    expect(oe.error).toBeTruthy()
-    expect(oe.error_description).toBeTruthy()
-    expect(oe.error_uri).toBeTruthy()
+
+    it('should have the correct properties', () => {
+      const oe = new OauthErrors.InvalidClient({ 
+        description: 'test',
+        uri: 'http://test.com/error'
+      })
+      expect(oe).toBeInstanceOf(Oauth2Error)
+      expect(oe.statusCode).toBe(400)
+      expect(oe.error).toBe('invalid_client')
+      expect(oe.error_description).toBeTruthy()
+      expect(oe.error_uri).toBeTruthy()
+    })
+  })
+
+  describe('InvalidGrant', () => {
+    it('should be an instance of an Oauth2Error', () => {
+      const oe = new OauthErrors.InvalidGrant()
+      expect(oe).toBeInstanceOf(Oauth2Error)
+    })
+
+    it('should have the correct properties', () => {
+      const oe = new OauthErrors.InvalidGrant({ 
+        description: 'test',
+        uri: 'http://test.com/error'
+      })
+      expect(oe).toBeInstanceOf(Oauth2Error)
+      expect(oe.statusCode).toBe(400)
+      expect(oe.error).toBe('invalid_grant')
+      expect(oe.error_description).toBeTruthy()
+      expect(oe.error_uri).toBeTruthy()
+    })
+  })
+
+  describe('InvalidRequest', () => {
+    it('should be an instance of an Oauth2Error', () => {
+      const oe = new OauthErrors.InvalidRequest()
+      expect(oe).toBeInstanceOf(Oauth2Error)
+    })
+
+    it('should have the correct properties', () => {
+      const oe = new OauthErrors.InvalidRequest()
+      expect(oe).toBeInstanceOf(Oauth2Error)
+      expect(oe.statusCode).toBe(400)
+      expect(oe.error).toBe('invalid_request')
+      expect(oe.error_description).toBeFalsy()
+      expect(oe.error_uri).toBeFalsy()
+    })
+  })
+
+  describe('InvalidScope', () => {
+    it('should be an instance of an Oauth2Error', () => {
+      const oe = new OauthErrors.InvalidScope()
+      expect(oe).toBeInstanceOf(Oauth2Error)
+    })
+
+    it('should have the correct properties', () => {
+      const oe = new OauthErrors.InvalidScope({ 
+        description: 'test',
+        uri: 'http://test.com/error'
+      })
+      expect(oe).toBeInstanceOf(Oauth2Error)
+      expect(oe.statusCode).toBeTruthy()
+      expect(oe.error).toBe('invalid_scope')
+      expect(oe.error_description).toBeTruthy()
+      expect(oe.error_uri).toBeTruthy()
+    })
+  })
+
+  describe('UnauthorizedClient', () => {
+    it('should be an instance of an Oauth2Error', () => {
+      const oe = new OauthErrors.UnauthorizedClient()
+      expect(oe).toBeInstanceOf(Oauth2Error)
+    })
+
+    it('should have the correct properties', () => {
+      const oe = new OauthErrors.UnauthorizedClient({ 
+        description: 'test',
+        uri: 'http://test.com/error'
+      })
+      expect(oe).toBeInstanceOf(Oauth2Error)
+      expect(oe.statusCode).toBeTruthy()
+      expect(oe.error).toBe('unauthorized_client')
+      expect(oe.error_description).toBeTruthy()
+      expect(oe.error_uri).toBeTruthy()
+    })
+  })
+
+  describe('UnauthorizedGrantType', () => {
+    it('should be an instance of an Oauth2Error', () => {
+      const oe = new OauthErrors.UnauthorizedGrantType()
+      expect(oe).toBeInstanceOf(Oauth2Error)
+    })
+
+    it('should have the correct properties', () => {
+      const oe = new OauthErrors.UnauthorizedGrantType({ 
+        description: 'test',
+        uri: 'http://test.com/error'
+      })
+      expect(oe).toBeInstanceOf(Oauth2Error)
+      expect(oe.statusCode).toBeTruthy()
+      expect(oe.error).toBe('unauthorized_grant_type')
+      expect(oe.error_description).toBeTruthy()
+      expect(oe.error_uri).toBeTruthy()
+    })
   })
 
   describe('toString', () => {
@@ -93,4 +196,5 @@ describe('OauthErrors', () => {
       oe.respond(mockResponse)
     })
   })
+
 })
