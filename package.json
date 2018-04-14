@@ -1,6 +1,6 @@
 {
   "name": "oauth2-errors",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Errors and handler for Oauth 2.0 spec errors",
   "main": "lib/index.js",
   "scripts": {

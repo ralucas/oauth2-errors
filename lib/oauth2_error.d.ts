@@ -1,3 +1,7 @@
+export declare type oauthParams = {
+    description?: string;
+    uri?: string;
+};
 export declare class Oauth2Error extends Error {
     error: string;
     error_description: string;
