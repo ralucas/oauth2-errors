@@ -63,20 +63,21 @@ const invalidRequestError = new OauthErrors.InvalidRequest({
 const OauthErrors = require('oauth2-errors');
 ...
 
-const invalidGrant = new OauthErrors.InvalidGrant()
-
 // Using the respond convenience fn
 function authorize(req, res, next) {
 
   if (invalidClient()) {
     const invalidClientErr = new OauthErrors.InvalidClient()
-    invalidClientErr.respond(res)
+    return invalidClientErr.respond(res)
   }
 }
 ```
 
 ## Release History
 * v1.0.0 - Initial Release - April 13, 2018
+* v1.0.1 - Update compilation - April 13, 2018
+* v1.0.2 - Improve tests - April 13, 2018
+* v1.0.3 - Add authorization errors - April 14, 2018
 
 ## License
 Copyright (c) 2018 Richard Lucas. Licensed under the MIT license.
