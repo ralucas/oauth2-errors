@@ -20,6 +20,13 @@ Follows the [Oauth 2.0 Spec](https://tools.ietf.org/html/rfc6749) for errors, se
 - `UnauthorizedClient` - unauthorized_client
 - `UnauthorizedGrantType` - unauthorized_grant_type
 
+And Authorization Errors:
+
+- `AccessDenied` - access_denied
+- `UnsupportedResponseType` - unsupported_response_type
+- `ServerError` - server_error
+- `TemporarilyUnavailable` - temporarily_unavailable
+
 ## Usage
 Each error is a class, so can be instantiated by calling `new`.
 

@@ -1,1 +1,0 @@
-{"version":3,"file":"invalid_client.js","sourceRoot":"/home/rlucas/yonomi/oauth2-errors/src/","sources":["errors/invalid_client.ts"],"names":[],"mappings":";;;;;;;;;;;;AAAA,gDAA6C;AAE7C;IAAmC,iCAAW;IAC5C,uBAAa,WAAoB,EAAE,GAAY;eAC7C,kBAAM;YACJ,KAAK,EAAE,gBAAgB;YACvB,iBAAiB,EAAE,WAAW;YAC9B,SAAS,EAAE,GAAG;SACf,CAAC;IACJ,CAAC;IACH,oBAAC;AAAD,CAAC,AARD,CAAmC,0BAAW,GAQ7C;AARY,sCAAa"}
