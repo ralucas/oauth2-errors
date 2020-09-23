@@ -5,7 +5,8 @@ export class AccessDenied extends Oauth2Error {
     super({
       error: 'access_denied',
       error_description: params.description,
-      error_uri: params.uri
+      error_uri: params.uri,
+      statusCode: 403
     })
   }
 }
