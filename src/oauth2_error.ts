@@ -8,13 +8,14 @@ export class Oauth2Error extends Error {
   public error: string
   public error_description: string
   public error_uri: string
-  private statusCode: number = 400
+  public statusCode: number
 
   constructor (params: any) {
     super(params.error)
     this.error = params.error
     this.error_description = params.error_description
     this.error_uri = params.error_uri
+    this.statusCode = params.statusCode || 400
 
     Object.setPrototypeOf(this, Oauth2Error.prototype)
   }

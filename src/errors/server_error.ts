@@ -5,7 +5,8 @@ export class ServerError extends Oauth2Error {
     super({
       error: 'server_error',
       error_description: params.description,
-      error_uri: params.uri
+      error_uri: params.uri,
+      statusCode: 500
     })
   }
 }
