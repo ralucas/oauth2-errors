@@ -27,8 +27,27 @@ describe('OauthErrors', () => {
         uri: 'http://test.com/error'
       })
       expect(oe).toBeInstanceOf(Oauth2Error)
-      expect(oe.statusCode).toBe(400)
+      expect(oe.statusCode).toBe(401)
       expect(oe.error).toBe('invalid_client')
+      expect(oe.error_description).toBeTruthy()
+      expect(oe.error_uri).toBeTruthy()
+    })
+  })
+
+  describe('InsufficientScope', () => {
+    it('should be an instance of an Oauth2Error', () => {
+      const oe = new OauthErrors.InsufficientScope()
+      expect(oe).toBeInstanceOf(Oauth2Error)
+    })
+
+    it('should have the correct properties', () => {
+      const oe = new OauthErrors.InsufficientScope({
+        description: 'test',
+        uri: 'http://test.com/error'
+      })
+      expect(oe).toBeInstanceOf(Oauth2Error)
+      expect(oe.statusCode).toBe(403)
+      expect(oe.error).toBe('insufficient_scope')
       expect(oe.error_description).toBeTruthy()
       expect(oe.error_uri).toBeTruthy()
     })
@@ -83,6 +102,25 @@ describe('OauthErrors', () => {
       expect(oe).toBeInstanceOf(Oauth2Error)
       expect(oe.statusCode).toBeTruthy()
       expect(oe.error).toBe('invalid_scope')
+      expect(oe.error_description).toBeTruthy()
+      expect(oe.error_uri).toBeTruthy()
+    })
+  })
+
+  describe('InvalidToken', () => {
+    it('should be an instance of an Oauth2Error', () => {
+      const oe = new OauthErrors.InvalidToken()
+      expect(oe).toBeInstanceOf(Oauth2Error)
+    })
+
+    it('should have the correct properties', () => {
+      const oe = new OauthErrors.InvalidToken({
+        description: 'test',
+        uri: 'http://test.com/error'
+      })
+      expect(oe).toBeInstanceOf(Oauth2Error)
+      expect(oe.statusCode).toBe(401)
+      expect(oe.error).toBe('invalid_token')
       expect(oe.error_description).toBeTruthy()
       expect(oe.error_uri).toBeTruthy()
     })
@@ -249,7 +287,7 @@ describe('OauthErrors', () => {
         expect(resData.error).toEqual('invalid_client')
         expect(resData.error_description).toBe('test')
         expect(resData.error_uri).toBe('http://test.com/error')
-        expect(mockResponse._getStatusCode()).toBe(400)
+        expect(mockResponse._getStatusCode()).toBe(401)
         done()
       })
       // Call here for test
