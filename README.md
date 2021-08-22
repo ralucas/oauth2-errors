@@ -11,9 +11,10 @@ const OauthErrors = require('oauth2-errors');
 ```
 
 ## Errors
-Follows the [Oauth 2.0 Spec](https://tools.ietf.org/html/rfc6749) for errors, see [here](https://tools.ietf.org/html/rfc6749#section-5.2)
+Follows the [Oauth 2.0 Spec](https://tools.ietf.org/html/rfc6749) for errors, see [here](https://tools.ietf.org/html/rfc6749#section-5.2).
+All errors have HTTP response status code of 400, except as noted.
 
-- `InvalidClient` - invalid_client
+- `InvalidClient` - invalid_client (HTTP 401)
 - `InvalidGrant` - invalid_grant
 - `InvalidRequest` - invalid_request
 - `InvalidScope` - invalid_scope
@@ -22,10 +23,15 @@ Follows the [Oauth 2.0 Spec](https://tools.ietf.org/html/rfc6749) for errors, se
 
 And Authorization Errors:
 
-- `AccessDenied` - access_denied
+- `AccessDenied` - access_denied (HTTP 403)
 - `UnsupportedResponseType` - unsupported_response_type
-- `ServerError` - server_error
-- `TemporarilyUnavailable` - temporarily_unavailable
+- `ServerError` - server_error (HTTP 500)
+- `TemporarilyUnavailable` - temporarily_unavailable (HTTP 503)
+
+Extension errors from [(RFC6750) OAuth 2.0 Bearer Token Usage](https://datatracker.ietf.org/doc/html/rfc6750)
+
+- `InvalidToken` - invalid_token (HTTP 401)
+- `InsufficientScope` - insufficient_scope (HTTP 403)
 
 ## Usage
 Each error is a class, so can be instantiated by calling `new`.

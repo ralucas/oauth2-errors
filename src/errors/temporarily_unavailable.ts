@@ -5,7 +5,8 @@ export class TemporarilyUnavailable extends Oauth2Error {
     super({
       error: 'temporarily_unavailable',
       error_description: params.description,
-      error_uri: params.uri
+      error_uri: params.uri,
+      statusCode: 503
     })
   }
 }
