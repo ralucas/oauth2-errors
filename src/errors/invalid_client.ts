@@ -5,7 +5,8 @@ export class InvalidClient extends Oauth2Error {
     super({
       error: 'invalid_client',
       error_description: params.description,
-      error_uri: params.uri
+      error_uri: params.uri,
+      statusCode: 401
     })
   }
 }
